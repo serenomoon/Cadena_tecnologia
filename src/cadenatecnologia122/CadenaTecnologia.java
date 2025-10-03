@@ -20,12 +20,13 @@ public class CadenaTecnologia {
         sucursales.add(suc);
     }
 
+    //Utilizo el error SucursalRepetidaException
     public void validarSucursal(Sucursal suc) {
         if (suc == null) {
-            throw new IllegalArgumentException("Sucursal nula.");
+            throw new SucursalRepetidaException("Sucursal nula.");
         }
         if (sucursales.contains(suc)) {
-            throw new IllegalArgumentException("La sucursal ya está agregada");
+            throw new SucursalRepetidaException();
         }
     }
 
@@ -69,8 +70,12 @@ public class CadenaTecnologia {
         return sucBuscada;
     }
     
-    public double[] porcDipositivosPorTipo(){
-        return null;
+    public double[] porcDipositivosPorTipo(String nombreSucursal) throws SucursalInexistenteException {
+       Sucursal sucursal = buscarSucursal(nombreSucursal);
+       if(sucursal == null){
+           throw new SucursalInexistenteException();
+       }
+       return sucursal.porcDispositivoPorTipo(nombreSucursal);
     }
     
 

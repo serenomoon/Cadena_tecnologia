@@ -39,6 +39,7 @@ public class CadenaTecnologia122 {
         s2.agregarDispositivo(new DispositivoElectronico("SKj93", TipoDispositivo.TABLET, 2_500));
         s2.agregarDispositivo(new DispositivoElectronico("SKj97", TipoDispositivo.TABLET, 3_500));
 
+        //Aca necesitariamos un try catch
         cadena.agregarSucursal(s1);
         cadena.agregarSucursal(s2);
     }
